@@ -1,0 +1,45 @@
+<head>
+<script> /*JavaScript Code */
+
+    function displayvalues(){
+        var ele = document.getElementsByName('gender')
+        for(i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                alert("You have selected "+ele[i].value+" as gender.")
+            }
+        }
+    }
+
+    function validateEmailInput(){
+        const emailInput = document.getElementById('emailInput').value
+        const feedbackElement = document.getElementById("emailfeedback")
+        const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+        if(emailRegEx.test(emailInput)){
+            feedbackElement.textContent=""  //Email is valid
+        }
+        else{
+            feedbackElement.textContent="Please enter a valid Email Address"   //Email is invalid
+        } 
+        //Control-Level Validation
+        //Validated only after submitted, for type Email.
+
+    }
+</script>
+</head>
+
+<body>
+<form id="quickreg" method="get" onsubmit="displayvalues()"> 
+    <label for="emailInput">Email:</label>
+    <input type="email" id="emailInput" name="emailInput" oninput="validateEmailInput()" required>
+    <span id="emailfeedback" style="color:red"></span>
+    <hr color="blue"/>
+    <label for="gender">Gender:</label>
+    <input type="radio" name="gender" value="Male">Male
+    <input type="radio" name="gender" value="Female">Female
+    <input type="radio" name="gender" value="Other">Other
+    <hr color="blue"/>
+    <button type="submit">Submit Details</button>
+    
+</form>
+</body>
