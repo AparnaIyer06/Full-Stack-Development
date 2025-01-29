@@ -1,0 +1,35 @@
+<head>
+
+    <script src="validation.js"></script>
+      
+</head>
+
+<body>
+
+    <table border="1" width="50%" align="center" bgcolor="aqua">
+        <tr>
+        
+            <th colspan=2>Registration Form</th>
+        </tr>
+
+        <tr>
+            <td>Username</td>
+            <td><input type="text" id="uname" maxlength="10" placeholder="Enter Username" onblur="validateuname()">
+            <div id="errmsg" style="color:red;background-color: yellow;"></div>
+        </td>
+        
+        </tr>
+
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="cpass" placeholder="Enter your Password" 
+                onblur="validatepassword(this.value)"></td>
+        </tr>
+        
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" id="cpass" placeholder="Re-enter your Password" onblur="validatecpass()"></td>
+        </tr>
+    </table>
+    <div id="Error Message"></div>
+</body>
