@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background: #f4f4f4;
+        }
+        /* Neatly align table inputs */
+        table input {
+            width: 95%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Registration Form</h1>
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" pattern="[A-Za-z\s]{1,30}" title="Only letters and spaces, max 30 characters" required>
+
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" name="middleName" pattern="[A-Za-z\s]{1,30}" title="Only letters and spaces, max 30 characters">
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" pattern="[A-Za-z\s]{1,30}" title="Only letters and spaces, max 30 characters" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" title="Enter a 10-digit mobile number" required>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" required> <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female"> <label for="female">Female</label>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter your address"></textarea>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" pattern="[A-Za-z\s]{1,30}" title="Only letters and spaces, max 30 characters" required>
+
+        <label for="pincode">Pin Code:</label>
+        <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" title="Enter a 6-digit pin code" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" pattern="[A-Za-z\s]+" title="Only letters allowed" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" pattern="[A-Za-z\s]+" title="Only letters allowed" required>
+
+        <label>Hobbies:</label>
+        <input type="checkbox" name="hobby" value="Coding"> Coding
+        <input type="checkbox" name="hobby" value="Blog-Writing"> Blog-Writing
+        <input type="checkbox" name="hobby" value="Cricket"> Cricket
+        <input type="checkbox" name="hobby" value="Others"> Others
+
+        <label>Qualification:</label>
+        <table>
+            <thead>
+                <tr>
+                    <th>Examination</th>
+                    <th>Board</th>
+                    <th>Percentage</th>
+                    <th>Year of Passing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Class X</td>
+                    <td><input type="text" name="board_x"></td>
+                    <td><input type="text" name="percentage_x"></td>
+                    <td><input type="text" name="year_x" pattern="[0-9]{4}" title="Enter a valid year (e.g., 2023)"></td>
+                </tr>
+                <tr>
+                    <td>Class XII</td>
+                    <td><input type="text" name="board_xii"></td>
+                    <td><input type="text" name="percentage_xii"></td>
+                    <td><input type="text" name="year_xii" pattern="[0-9]{4}" title="Enter a valid year (e.g., 2023)"></td>
+                </tr>
+                <tr>
+                    <td>Graduation</td>
+                    <td><input type="text" name="board_grad"></td>
+                    <td><input type="text" name="percentage_grad"></td>
+                    <td><input type="text" name="year_grad" pattern="[0-9]{4}" title="Enter a valid year (e.g., 2023)"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <label>Courses Applied For:</label>
+        <input type="radio" name="course" value="MTech" required> M.Tech
+        <input type="radio" name="course" value="PhD"> Ph.D
+        <input type="radio" name="course" value="MS"> MS
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+
+
+
