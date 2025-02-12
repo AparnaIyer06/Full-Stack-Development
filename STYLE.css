@@ -1,0 +1,45 @@
+body{
+    display:flex;
+    justify-content:center;
+    margin:0;
+    padding:0;left;
+    height:100vh;
+    box-sizing:border-box;
+    text-align:center;
+    background: bisque;
+
+}.container{
+    width:100%;
+    max-width: 500px;
+    margin: 5px;
+}
+.container h1{
+    color: white;
+
+}
+.section{
+    background-color: white;
+    padding: 50px 30px;
+    border: 1.5px solid #b2b2b2;
+    box-shadow: 0 2px 25px rgba(0,0,0,0.25);
+}
+#qr-code-reader{
+    padding: 20px !important;
+    border: 1.5px solid #b2b2b2 !important;
+    border-radius: 8px;
+
+}
+#qr-code-reader img[alt="info icon"]{
+    display: none;
+}
+#qr-code-reader img[alt="Camera Based Scan"]{
+    width: 100px !important;
+    height: 100px !important;
+}
+
+button{
+    padding:10px;
+    border:1px solid;
+    
+}
+
