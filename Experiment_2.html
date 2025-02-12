@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" id="firstName" required>
+                <span class="error" id="firstNameError"></span>
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" id="lastName" required>
+                <span class="error" id="lastNameError"></span>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" id="password" required>
+                <span class="error" id="passwordError"></span>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password:</label>
+                <input type="password" id="confirmPassword" required>
+                <span class="error" id="confirmPasswordError"></span>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input type="date" id="dob" required>
+                <span class="error" id="dobError"></span>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <select id="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span class="error" id="genderError"></span>
+            </div>
+            <div class="form-group">
+                <label>Country:</label>
+                <select id="country" required>
+                    <option value="">Select</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+                <span class="error" id="countryError"></span>
+            </div>
+            <div class="form-group">
+                <label>Profile Picture:</label>
+                <input type="file" id="profilePic" accept="image/*" required>
+                <span class="error" id="profilePicError"></span>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            function showError(id, message) {
+                document.getElementById(id).textContent = message;
+                isValid = false;
+            }
+            function clearError(id) {
+                document.getElementById(id).textContent = "";
+            }
+
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let dob = document.getElementById("dob").value;
+            let gender = document.getElementById("gender").value;
+            let country = document.getElementById("country").value;
+            let profilePic = document.getElementById("profilePic").value;
+
+            if (firstName.trim() === "") showError("firstNameError", "First Name is required"); else clearError("firstNameError");
+            if (lastName.trim() === "") showError("lastNameError", "Last Name is required"); else clearError("lastNameError");
+            if (!email.includes("@")) showError("emailError", "Enter a valid email"); else clearError("emailError");
+            if (password.length < 6) showError("passwordError", "Password must be at least 6 characters"); else clearError("passwordError");
+            if (password !== confirmPassword) showError("confirmPasswordError", "Passwords do not match"); else clearError("confirmPasswordError");
+            if (dob === "") showError("dobError", "Date of Birth is required"); else clearError("dobError");
+            if (gender === "") showError("genderError", "Select Gender"); else clearError("genderError");
+            if (country === "") showError("countryError", "Select Country"); else clearError("countryError");
+            if (profilePic === "") showError("profilePicError", "Upload a profile picture"); else clearError("profilePicError");
+
+            if (isValid) {
+                alert("Form Submitted Successfully");
+                document.getElementById("registrationForm").reset();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
